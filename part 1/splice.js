@@ -9,10 +9,6 @@ module.exports = function(array, start, deleteCount, ...items) {
   for(let i = 0; i < deleteCount; i++ ) {
     toReturn[toReturn.length] = array[start+i];
   }
-
-  for(let i = 0; i < deleteCount; i++ ) {
-    toReturn[toReturn.length] = array[start+i];
-  }
   for (let i = start; i < array.length; i++ ) {
     array[i] = array[i+deleteCount];
   }

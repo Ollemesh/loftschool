@@ -33,9 +33,11 @@ function arrayEqual(arrA, arrB) {
 
   for( let i = 0; i < arrA.length; i++ ) {
     //Если элемент массив, рекурсивно вызовем arrayEqual
-    if(Array.isArray(arrA[i])) { if(arrayEqual(arrA[i], arrB[i])) continue; else return false; }
+    //if(Array.isArray(arrA[i])) { if(arrayEqual(arrA[i], arrB[i])) continue; else return false; }
+    if(Array.isArray(arrA[i])) arrayEqual(arrA[i], arrB[i]) ? continue : return false;
     //Если элемент объект вызовем deepEqual
-    else if(typeof arrA[i] === 'object' ) { if(deepEqual(arrA[i], arrB[i])) continue; else return false; }
+    //else if(typeof arrA[i] === 'object' ) { if(deepEqual(arrA[i], arrB[i])) continue; else return false; }
+    else if(typeof arrA[i] === 'object' ) deepEqual(arrA[i], arrB[i]) ? continue : return false;
     //Если элемент примитивнй тип, просто сравним его
     else if(arrA[i] != arrB[i]) return false;
   }
